@@ -73,7 +73,7 @@ kubectl version --short --client
 
 ### Step 7: Setup EKS Cluster
 ``` shell
-eksctl create cluster --name maven-cluster --region us-east-1 --node-type t2.medium --nodes-min 2 --nodes-max 2
+eksctl create cluster --name maven-cluster --region us-east-1 --node-type m7i-flex.large --nodes-min 2 --nodes-max 2
 aws eks update-kubeconfig --region us-east-1 --name maven-cluster
 kubectl get nodes
 ```
