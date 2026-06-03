@@ -20,7 +20,7 @@ eksctl create iamserviceaccount \
     --name=aws-load-balancer-controller \
     --attach-policy-arn=arn:aws:iam::347026173735:policy/AWSLoadBalancerControllerIAMPolicy \
     --override-existing-serviceaccounts \
-    --region us-esat-1 \
+    --region us-east-1 \
     --approve
 ```
 
