@@ -31,6 +31,9 @@ kubectl version --short --client
     sudo mv /tmp/eksctl /usr/local/bin
     eksctl version
 ```
+
+
+### ** Install AWS application load balancer refering the below docs link**<br/>
 ```
 https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html
 ```
