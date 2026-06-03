@@ -1,4 +1,36 @@
 ** Install AWS application load balancer refering the below docs link**<br/>
+
+### Install AWS CLI v2
+``` shell
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin --update
+aws configure
+```
+
+### Install Docker
+``` shell
+sudo apt-get update
+sudo apt install docker.io
+docker ps
+sudo chown $USER /var/run/docker.sock
+```
+
+### Install kubectl
+``` shell
+curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin
+kubectl version --short --client
+```
+
+### Install eksctl
+``` shell
+    curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+    sudo mv /tmp/eksctl /usr/local/bin
+    eksctl version
+```
 ```
 https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html
 ```
@@ -41,4 +73,8 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   --set region=us-east-1 \
   --set vpcId=vpc-04150f6b634154f45 \
   --version 1.14.0
+```
+
+```
+kubectl get deployment -n kube-system aws-load-balancer-controller
 ```
