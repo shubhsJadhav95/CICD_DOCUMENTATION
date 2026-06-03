@@ -1,45 +1,5 @@
-cd
-## Application Code
-The `Application-Code` directory contains the source code for the Three-Tier Web Application. Dive into this directory to explore the frontend and backend implementations.
 
-## Jenkins Pipeline Code
-In the `Jenkins-Pipeline-Code` directory, you'll find Jenkins pipeline scripts. These scripts automate the CI/CD process, ensuring smooth integration and deployment of your application.
-
-## Jenkins Server Terraform
-Explore the `Jenkins-Server-TF` directory to find Terraform scripts for setting up the Jenkins Server on AWS. These scripts simplify the infrastructure provisioning process.
-
-## Kubernetes Manifests Files
-The `Kubernetes-Manifests-Files` directory holds Kubernetes manifests for deploying your application on AWS EKS. Understand and customize these files to suit your project needs.
-
-## Project Details
-🛠️ **Tools Explored:**
-- Terraform & AWS CLI for AWS infrastructure
-- Jenkins, Sonarqube, Terraform, Kubectl, and more for CI/CD setup
-- Helm, Prometheus, and Grafana for Monitoring
-- ArgoCD for GitOps practices
-
-🚢 **High-Level Overview:**
-- IAM User setup & Terraform magic on AWS
-- Jenkins deployment with AWS integration
-- EKS Cluster creation & Load Balancer configuration
-- Private ECR repositories for secure image management
-- Helm charts for efficient monitoring setup
-- GitOps with ArgoCD - the cherry on top!
-
-📈 **The journey covered everything from setting up tools to deploying a Three-Tier app, ensuring data persistence, and implementing CI/CD pipelines.**
-
-## Getting Started
-To get started with this project, refer to our [comprehensive guide](https://amanpathakdevops.medium.com/advanced-end-to-end-devsecops-kubernetes-three-tier-project-using-aws-eks-argocd-prometheus-fbbfdb956d1a) that walks you through IAM user setup, infrastructure provisioning, CI/CD pipeline configuration, EKS cluster creation, and more.
-
-### Step 1: IAM Configuration
-- Create a user `eks-admin` with `AdministratorAccess`.
-- Generate Security Credentials: Access Key and Secret Access Key.
-
-### Step 2: EC2 Setup
-- Launch an Ubuntu instance in your favourite region (eg. region `us-west-2`).
-- SSH into the instance from your local machine.
-
-### Step 3: Install AWS CLI v2
+### Step 1: Install AWS CLI v2
 ``` shell
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 sudo apt install unzip
@@ -48,7 +8,7 @@ sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin --update
 aws configure
 ```
 
-### Step 4: Install Docker
+### Step 2: Install Docker
 ``` shell
 sudo apt-get update
 sudo apt install docker.io
@@ -56,7 +16,7 @@ docker ps
 sudo chown $USER /var/run/docker.sock
 ```
 
-### Step 5: Install kubectl
+### Step 3: Install kubectl
 ``` shell
 curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
 chmod +x ./kubectl
@@ -64,7 +24,7 @@ sudo mv ./kubectl /usr/local/bin
 kubectl version --short --client
 ```
 
-### Step 6: Install eksctl
+### Step 4: Install eksctl
 ``` shell
     curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
     sudo mv /tmp/eksctl /usr/local/bin
@@ -84,6 +44,23 @@ kubectl create namespace workshop
 kubectl apply -f .
 kubectl delete -f .
 ```
+
+### K8s cluster share access to other user
+
+aws iam get-user --user-name devops-user
+
+aws eks describe-cluster --name maven-cluster --query "cluster.accessConfig"
+
+aws eks create-access-entry \
+  --cluster-name maven-cluster \
+  --principal-arn arn:aws:iam::347026173735:user/devops-user
+
+aws eks associate-access-policy \
+  --cluster-name maven-cluster \
+  --principal-arn arn:aws:iam::347026173735:user/devops-user \
+  --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
+  --access-scope type=cluster
+
 
 ### Step 9: Install AWS Load Balancer
 ``` shell
