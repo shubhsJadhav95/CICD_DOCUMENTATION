@@ -9,8 +9,11 @@ eksctl create iamserviceaccount \
         --cluster tws-eks-cluster \
         --role-name AmazonEKS_EBS_CSI_DriverRole \
         --role-only \
-        --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicyV2 \
-        --approve
+        --attach-policy-arn arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicyV2 \
+        --approve \
+	    --region us-east-1
+        
+
 ```
 ### Deploy Driver Documentation
 
@@ -32,3 +35,5 @@ helm upgrade --install aws-ebs-csi-driver \
 ```
 kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-ebs-csi-driver
 ```
+
+AmazonEBSCSIDriverPolicyV2 
