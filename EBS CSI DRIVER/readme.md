@@ -36,4 +36,3 @@ helm upgrade --install aws-ebs-csi-driver \
 kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-ebs-csi-driver
 ```
 
-AmazonEBSCSIDriverPolicyV2 

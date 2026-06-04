@@ -48,6 +48,10 @@ usermod -aG docker jenkins
 usermod -aG docker ubuntu
 systemctl restart docker
 
+sudo usermod -aG docker jenkins
+sudo -u jenkins docker ps
+groups jenkins
+
 # Restart Jenkins
 
 http://<ec2-instance-public-ip>:8080/restart
