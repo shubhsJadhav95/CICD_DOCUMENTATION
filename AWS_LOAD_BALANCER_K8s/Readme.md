@@ -67,15 +67,19 @@ helm repo add eks https://aws.github.io/eks-charts
 ```
 helm repo update eks
 ```
+
+#### Upload Your Region and VPC Below
 ```
+
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   -n kube-system \
   --set clusterName=tws-eks-cluster \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller \
   --set region=us-east-1 \
-  --set vpcId=vpc-04150f6b634154f45 \
+  --set vpcId=vpc-0bb618a2fa6baf1e6 \       
   --version 1.14.0
+  
 ```
 
 ```
