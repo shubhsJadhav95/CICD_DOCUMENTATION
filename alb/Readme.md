@@ -47,6 +47,14 @@ aws iam create-policy \
     --policy-name AWSLoadBalancerControllerIAMPolicy \
     --policy-document file://iam_policy.json
 ```
+```
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+```
+
+#### If oidc provider not associate with cluster
+```
+ eksctl utils associate-iam-oidc-provider --region=us-east-2 --cluster=costspike --approve
+```
 
 ```
 eksctl create iamserviceaccount \
