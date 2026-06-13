@@ -42,8 +42,6 @@ controller:
     annotations:
       eks.amazonaws.com/role-arn: arn:aws:iam::347026173735:role/AmazonEKS_EBS_CSI_DriverRole
 ```
-```
-helm uninstall aws-ebs-csi-driver -n kube-system
 
 ```
 helm upgrade --install aws-ebs-csi-driver \
@@ -55,6 +53,11 @@ helm upgrade --install aws-ebs-csi-driver \
 k describe po ebs-csi-controller-77bb9cb4c6-vxbcv  -n kube-system | grep role
 
 ```
+```
 kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-ebs-csi-driver
 ```
 
+```
+helm uninstall aws-ebs-csi-driver -n kube-system
+
+```
