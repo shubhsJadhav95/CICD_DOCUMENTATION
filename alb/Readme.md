@@ -48,6 +48,9 @@ aws iam create-policy \
     --policy-document file://iam_policy.json
 ```
 ```
+ aws iam delete-policy --policy-arn arn:aws:iam::347026173735:policy/AWSLoadBalancerControllerIAMPolicy
+```
+```
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
 
@@ -85,7 +88,7 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller \
   --set region=us-east-1 \
-  --set vpcId=vpc-0bb618a2fa6baf1e6 \       
+  --set vpcId=vpc-0bb618a2fa6baf1e6 \
   --version 1.14.0
   
 ```
