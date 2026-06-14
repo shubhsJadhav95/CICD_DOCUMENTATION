@@ -8,7 +8,7 @@ kubectl create namespace argocd
 (https://artifacthub.io/packages/helm/argo/argo-cd)
 ```bash
 helm repo add argo https://argoproj.github.io/argo-helm
-helm install my-argo-cd argo/argo-cd --version 8.0.10
+helm install my-argo-cd argo/argo-cd --version 8.0.10 -n argocd
 ```
 2. get the values file and save it
 ```bash
@@ -43,7 +43,7 @@ server:
 ```
 4. save and upgrade the helm chart.
 ```
-helm upgrade my-argo-cd argo/argo-cd -n argocd -f my-values.yaml
+helm upgrade my-argo-cd argo/argo-cd -n argocd -f argocd-values.yaml
 ```
 5. add the record in route53 “argocd.devopsdock.site” with load balancer dns.
 
@@ -52,7 +52,7 @@ helm upgrade my-argo-cd argo/argo-cd -n argocd -f my-values.yaml
 7. Retrive the secret for Argocd
 
 ```jsx
-kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d echo
 ```
 
 8. login to argocd “admin” and retrieved password
