@@ -4,14 +4,15 @@ https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html#eksctl_store_app_d
 ```
 ```
 eksctl create iamserviceaccount \
-        --name ebs-csi-controller-sa \
-        --namespace kube-system \
-        --cluster tws-eks-cluster \
-        --role-name AmazonEKS_EBS_CSI_DriverRole \
-        --role-only \
-        --attach-policy-arn arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicyV2 \
-        --approve \
-        --region us-east-1
+  --name ebs-csi-controller-sa \
+  --namespace kube-system \
+  --cluster neocare-dev \
+  --role-name AmazonEKS_EBS_CSI_DriverRole \
+  --role-only \
+  --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+  --approve \
+  --region us-east-1 \
+  --override-existing-serviceaccounts
         
 
 ```
@@ -42,7 +43,13 @@ controller:
     annotations:
       eks.amazonaws.com/role-arn: arn:aws:iam::347026173735:role/AmazonEKS_EBS_CSI_DriverRole
 ```
+```
+helm upgrade --install aws-ebs-csi-driver aws-ebs-csi-driver/aws-ebs-csi-driver \
+  --namespace kube-system \
+  -f ebs-driver.yaml
+```
 
+#### OPTIONAL
 ```
 helm upgrade --install aws-ebs-csi-driver \
     --namespace kube-system \
