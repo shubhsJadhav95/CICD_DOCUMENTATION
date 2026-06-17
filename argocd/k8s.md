@@ -45,9 +45,12 @@ spec:
           service:
             name: argocd-server
             port:
-              number: 80
+              number: 8080 
 
 ```
 
+#### CHECK PORT SOMETIME ITS 80 or 8080
+```
 kubectl -n argocd get secret argocd-initial-admin-secret \
   -o jsonpath="{.data.password}" | base64 -d
+```
