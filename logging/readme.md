@@ -98,7 +98,7 @@ filebeatConfig:
           - /var/log/containers/*easyshop*.log
 ```
 
-```
+
 
 ```
  helm upgrade my-filebeat elastic/filebeat -f filebeat.yaml -n logging
