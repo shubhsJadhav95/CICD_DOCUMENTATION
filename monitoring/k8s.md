@@ -3,13 +3,29 @@
 ```
 kubectl create namespcace monitoring
 ```
+
+#### Install matrix server
 ```
 helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
 
-helm install my-metrics-server metrics-server/metrics-server --version 3.13.0 -n monitoring
+helm install metrics-server metrics-server/metrics-server \
+  --namespace kube-system \
+  --set args="{--kubelet-insecure-tls,--kubelet-preferred-address-types=InternalIP}"
+```
+
+#### Check its working
+```
+kubectl rollout restart deployment metrics-server -n kube-system
+```
+```
+kubectl top nodes
+kubectl top pods -A
+```
 ```
 
 ```
+#### Set backend service based on service
+
 vim grafana-ingress.yml
 ```
 
