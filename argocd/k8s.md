@@ -49,8 +49,15 @@ spec:
 
 ```
 
+
+#### After in case port change to 80
+```
+kubectl rollout restart deployment argocd-server -n argocd
+kubectl rollout status deployment argocd-server -n argocd
+```
+
+
 #### CHECK PORT SOMETIME ITS 80 or 8080
 ```
-kubectl -n argocd get secret argocd-initial-admin-secret \
-  -o jsonpath="{.data.password}" | base64 -d
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echoavB
 ```
