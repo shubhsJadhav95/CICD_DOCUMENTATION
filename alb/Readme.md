@@ -61,7 +61,7 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
 ```
 eksctl create iamserviceaccount \
-    --cluster=tws-eks-cluster \
+    --cluster=one8pulse-stage-eks \
     --namespace=kube-system \
     --name=aws-load-balancer-controller \
     --attach-policy-arn=arn:aws:iam::797111435256:policy/AWSLoadBalancerControllerIAMPolicy \
@@ -84,7 +84,7 @@ helm repo update eks
 
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   -n kube-system \
-  --set clusterName=tws-eks-cluster \
+  --set clusterName=one8pulse-stage-eks \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller \
   --set region=us-east-1 \

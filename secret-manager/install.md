@@ -77,7 +77,7 @@ aws iam create-policy \
 #### add your name space for secret-manager
 ```
 eksctl create iamserviceaccount \
-    --cluster=neocare-dev-eks \
+    --cluster=one8pulse-stage-eks \
     --namespace=neocare \
     --name=aws-csi-secret-manager \
     --attach-policy-arn=arn:aws:iam::797111435256:policy/EksSecretManagerPolicy \
