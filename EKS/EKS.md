@@ -53,11 +53,11 @@ aws eks describe-cluster --name maven-cluster --query "cluster.accessConfig"
 
 aws eks create-access-entry \
   --cluster-name maven-cluster \
-  --principal-arn arn:aws:iam::347026173735:user/devops-user
+  --principal-arn arn:aws:iam::797111435256:user/devops-user
 
 aws eks associate-access-policy \
   --cluster-name maven-cluster \
-  --principal-arn arn:aws:iam::347026173735:user/devops-user \
+  --principal-arn arn:aws:iam::797111435256:user/devops-user \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
   --access-scope type=cluster
 

@@ -41,7 +41,7 @@ controller:
     create: true
     name: ebs-csi-controller-sa
     annotations:
-      eks.amazonaws.com/role-arn: arn:aws:iam::347026173735:role/AmazonEKS_EBS_CSI_DriverRole
+      eks.amazonaws.com/role-arn: arn:aws:iam::797111435256:role/AmazonEKS_EBS_CSI_DriverRole
 ```
 ```
 helm upgrade --install aws-ebs-csi-driver aws-ebs-csi-driver/aws-ebs-csi-driver \

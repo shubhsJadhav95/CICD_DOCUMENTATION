@@ -51,7 +51,7 @@ vim secret_policy.json
                 "secretsmanager:GetSecretValue",
                 "secretsmanager:DescribeSecret"
             ],
-            "Resource": "arn:aws:secretsmanager:*:347026173735:secret:*"
+            "Resource": "arn:aws:secretsmanager:*:797111435256:secret:*"
         }
     ]
 }
@@ -65,7 +65,7 @@ aws iam create-policy \
 ```
 
 ```
- aws iam delete-policy --policy-arn arn:aws:iam::347026173735:policy/EksSecretManagerPolicy
+ aws iam delete-policy --policy-arn arn:aws:iam::797111435256:policy/EksSecretManagerPolicy
 ```
 ####  the IAM OIDC provider for the cluster if you have not already done so
 ```
@@ -80,7 +80,7 @@ eksctl create iamserviceaccount \
     --cluster=neocare-dev-eks \
     --namespace=neocare \
     --name=aws-csi-secret-manager \
-    --attach-policy-arn=arn:aws:iam::347026173735:policy/EksSecretManagerPolicy \
+    --attach-policy-arn=arn:aws:iam::797111435256:policy/EksSecretManagerPolicy \
     --override-existing-serviceaccounts \
     --region us-east-1 \
     --approve

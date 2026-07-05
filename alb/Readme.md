@@ -48,7 +48,7 @@ aws iam create-policy \
     --policy-document file://iam_policy.json
 ```
 ```
- aws iam delete-policy --policy-arn arn:aws:iam::347026173735:policy/AWSLoadBalancerControllerIAMPolicy
+ aws iam delete-policy --policy-arn arn:aws:iam::797111435256:policy/AWSLoadBalancerControllerIAMPolicy
 ```
 ```
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
@@ -64,7 +64,7 @@ eksctl create iamserviceaccount \
     --cluster=tws-eks-cluster \
     --namespace=kube-system \
     --name=aws-load-balancer-controller \
-    --attach-policy-arn=arn:aws:iam::347026173735:policy/AWSLoadBalancerControllerIAMPolicy \
+    --attach-policy-arn=arn:aws:iam::797111435256:policy/AWSLoadBalancerControllerIAMPolicy \
     --override-existing-serviceaccounts \
     --region us-east-1 \
     --approve

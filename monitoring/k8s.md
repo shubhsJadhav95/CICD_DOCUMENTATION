@@ -46,7 +46,7 @@ metadata:
     # 🚨 TEMP FIX: REMOVE SSL REDIRECT (IMPORTANT)
     # alb.ingress.kubernetes.io/ssl-redirect: '443'
 
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:347026173735:certificate/51f1a255-0a49-4f90-aa79-4e43e20b9da8
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:797111435256:certificate/51f1a255-0a49-4f90-aa79-4e43e20b9da8
 
 spec:
   ingressClassName: alb
@@ -83,7 +83,7 @@ metadata:
     # 🚨 TEMP FIX: REMOVE SSL REDIRECT (IMPORTANT)
     # alb.ingress.kubernetes.io/ssl-redirect: '443'
 
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:347026173735:certificate/51f1a255-0a49-4f90-aa79-4e43e20b9da8
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:797111435256:certificate/51f1a255-0a49-4f90-aa79-4e43e20b9da8
 
 spec:
   ingressClassName: alb
@@ -120,7 +120,7 @@ metadata:
     # Uncomment if you want to force HTTPS
     # alb.ingress.kubernetes.io/ssl-redirect: '443'
 
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:347026173735:certificate/51f1a255-0a49-4f90-aa79-4e43e20b9da8
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:797111435256:certificate/51f1a255-0a49-4f90-aa79-4e43e20b9da8
 
 spec:
   ingressClassName: alb

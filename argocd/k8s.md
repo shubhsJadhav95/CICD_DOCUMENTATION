@@ -31,7 +31,7 @@ metadata:
     # 🚨 TEMP FIX: REMOVE SSL REDIRECT (IMPORTANT)
     # alb.ingress.kubernetes.io/ssl-redirect: '443'
 
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:347026173735:certificate/6c33d96f-ba4a-4cdb-ac0b-d431a1a52439
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:797111435256:certificate/6c33d96f-ba4a-4cdb-ac0b-d431a1a52439
 
 spec:
   ingressClassName: alb
