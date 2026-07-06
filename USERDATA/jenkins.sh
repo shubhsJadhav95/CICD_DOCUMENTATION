@@ -14,11 +14,10 @@ sudo apt-get install -y \
   ca-certificates
 
 # ---------- Docker ----------
-sudo apt-get install -y docker.io
-sudo systemctl enable --now docker
-sudo chown "$USER" /var/run/docker.sock
-sudo usermod -aG docker ubuntu
-sudo usermod -aG docker jenkins 2>/dev/null || true   # jenkins user may not exist yet at this point
+sudo apt-get update
+sudo apt install docker.io
+docker ps
+sudo chown $USER /var/run/docker.sock   # jenkins user may not exist yet at this point
 
 docker ps
 
@@ -56,15 +55,17 @@ sudo apt-get install -y unzip
 unzip -o awscliv2.zip
 sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin --update
 
+
+
 # ---------- SonarQube ----------
 docker run -d --name sonar --restart unless-stopped -p 9000:9000 sonarqube:lts-community
 
-echo ""
-echo "=========================================="
-echo "Setup complete."
-echo "Restart your shell session (or run 'newgrp docker')"
-echo "for the docker group membership to take effect for '$USER'."
-echo "Jenkins service: sudo systemctl status jenkins"
-echo "Jenkins initial admin password:"
-echo "  sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
-echo "=========================================="
+
+# Add Docker to an Jenkins
+getent group docker
+sudo usermod -aG docker jenkins
+groups jenkins
+
+# Jenkins Password
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
