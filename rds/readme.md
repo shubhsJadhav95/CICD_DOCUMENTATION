@@ -32,7 +32,7 @@ sudo apt install postgresql-client -y
 
 ```
 ```
-psql -h database-1.cc7immiow9w7.us-east-1.rds.amazonaws.com -U postgres -p
+psql -h my-postgres-db.ck7qmqmk6ii4.us-east-1.rds.amazonaws.com -U postgres -p 5432
 ```
 #### Created DB via psql -> neocare
 
