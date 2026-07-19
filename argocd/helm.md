@@ -4,6 +4,10 @@ Create a Namespace for Argo CD<br/>
 ```bash
 kubectl create namespace argocd
 ```
+```
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+```
+
 1. Install Argo CD using helm  
 (https://artifacthub.io/packages/helm/argo/argo-cd)
 ```bash
