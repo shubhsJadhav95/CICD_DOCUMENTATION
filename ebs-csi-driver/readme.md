@@ -16,6 +16,14 @@ eksctl create iamserviceaccount \
         
 
 ```
+#### or
+```
+aws eks create-addon \
+  --cluster-name one8pulse-stage-eks \
+  --addon-name aws-ebs-csi-driver \
+  --service-account-role-arn arn:aws:iam::797111435256:role/AmazonEKS_EBS_CSI_DriverRole \
+  --region us-east-1
+```
 ### Deploy Driver Documentation
 
 ```
